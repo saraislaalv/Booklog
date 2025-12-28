@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles.css";
 
 function BookCard({book, onAdd, onRemove, showAdd = true, onRate, onNote, onStatus}){
     const info = book.volumeInfo;
@@ -53,7 +54,6 @@ function BookCard({book, onAdd, onRemove, showAdd = true, onRate, onNote, onStat
                     </select>
                 </div>
                 )}
-
 
                 <br />      
 

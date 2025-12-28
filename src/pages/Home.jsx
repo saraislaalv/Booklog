@@ -2,6 +2,7 @@ import { useState } from "react";
 import { searchBooks } from "../api/bookApi";
 import { useLibrary } from "../context/LibraryContext";
 import BookCard from "../components/BookCard";
+import "../styles.css"
 
 function Home() {
   const [query, setQuery] = useState("");
@@ -42,38 +43,42 @@ function Home() {
 
   return (
     <div>
-      <h1>Søk etter bøker</h1>
+        <h1 className="page-header">Søk etter bøker</h1>
+        <div className="search-page">
+            <form className="search-form" onSubmit={handleSearch}>
+                <input
+                className="search-input"
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Skriv inn boktittel"
+                />
+                <button className="search-button" type="submit">
+                Søk
+                </button>
+            </form>
 
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Skriv inn boktittel"
-        />
-        <button type="submit">Søk</button>
-      </form>
+            {confirmationMessage && (
+                <p className="confirmation-message">{confirmationMessage}</p>
+            )}
 
-      {confirmationMessage && (
-        <p style={{ color: "green", marginTop: "10px" }}>{confirmationMessage}</p>
-        )}
-
-
-      <div>
-        {isLoading ? (
-          <p>Søker...</p>
-        ) : (
-          results.map((book) => (
-            <BookCard
-              key={book.id}
-              book={book}
-              onAdd={handleAddToLibrary}
-              showAdd={true}
-            />
-          ))
-        )}
-      </div>
+            <div className="search-results">
+                {isLoading ? (
+                <p>Søker...</p>
+                ) : (
+                results.map((book) => (
+                    <BookCard
+                    key={book.id}
+                    book={book}
+                    onAdd={handleAddToLibrary}
+                    showAdd={true}
+                    />
+                ))
+                )}
+            </div>
+        </div>
     </div>
+
   );
 }
 

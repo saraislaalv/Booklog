@@ -1,14 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap');
+
+:root {
+  --bg-main: #f6f4f1;
+  --bg-card: #ffffff;
+  --bg-column: #fdfdfc;
+
+  --text-main: #2b2b2b;
+  --text-muted: #6f6f6f;
+
+  --accent: #6f6f6f;
+  --accent-light: #e9e6ff;
+
+  --border-light: #e1e1e1;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-main);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text-main);
+}
+
+.topbar {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.topbar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  margin-right: 50px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+
 .book-card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 1rem;
-    margin: 1rem 0;
-    display: flex;
-    gap: 1rem;
-  }
+  background-color: var(--bg-card);
+  border-radius: 14px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  gap: 1rem;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
   
   .book-card img {
     width: 100px;
     height: auto;
   }
   
+  .library-columns {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin: 0 2rem;
+  }
+  
+  .library-column {
+    flex: 1;
+    background-color: var(--bg-column);
+    border-radius: 14px;
+    padding: 1.25rem;
+    border: 1px solid var(--border-light);
+  }
+  
+  .library-column h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 1.3rem;
+  }
+  
+  .book-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+  }
+  
+  .book-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }  
+  
+  .book-card img {
+    width: 90px;
+    height: 135px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .book-card textarea {
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.6rem;
+    resize: vertical;
+  
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+  }
+  
+  .book-card select {
+    margin-top: 0.75rem;
+    padding: 0.5rem;
+  
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    background-color: #fff;
+    font-size: 0.85rem;
+  }
+  
+  .book-card button {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+
+  border-radius: 8px;
+  border: none;
+  background-color: var(--accent);
+  color: white;
+
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.book-card button:hover {
+  opacity: 0.9;
+}
+
+.page-header {
+  max-width: 1200px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 2rem;
+  font-family: 'Merriweather', serif;
+  font-size: 2.3rem;
+  margin: 30px;
+}
+
+.search-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-card);
+
+  font-family: 'Inter', sans-serif;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.search-button {
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+
+  border: none;
+  background-color: var(--accent);
+  color: white;
+
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  opacity: 0.9;
+}
+
+.confirmation-message {
+  margin-bottom: 1.5rem;
+  color: #1f7a4a;
+  font-size: 0.9rem;
+}
+
+.search-results {
+  margin-top: 1rem;
+}

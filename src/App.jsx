@@ -1,14 +1,21 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Library from "./pages/Library";
+import "./styles.css";
 
 function App() {
   return (
     <Router>
-      <nav style={{ display: "flex", gap: "1rem", padding: "1rem" }}>
-        <Link to="/library">Mitt bibliotek</Link>
-        <Link to="/">Søk</Link>
-      </nav>
+      <header className="topbar">
+        <div className="topbar-content">
+          <span className="logo">Booklog</span>
+
+          <nav className="nav-links">
+            <Link to="/">Hjem</Link>
+            <Link to="/library">Bibliotek</Link>
+          </nav>
+        </div>
+      </header>
 
       <Routes>
         <Route path="/" element={<Home />} />
